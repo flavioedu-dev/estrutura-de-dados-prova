@@ -1,0 +1,7 @@
+Compilando agenda:
+    gcc -c agenda.c
+    gcc -c prog.c
+    gcc -o prog agenda.c prog.c
+
+Executando agenda:
+    ./prog
