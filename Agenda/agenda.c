@@ -23,6 +23,29 @@ Agenda *inserir_inicio(Agenda *a, char *nome, long numero, char *email){
     return novo;
 }
 
+void inserir_fim(Agenda *a, char *nome, long numero, char *email){
+    Agenda *novo = novo_contato();
+    novo->nome = nome;
+    novo->numero = numero;
+    novo->email = email;
+
+    if(a == NULL){
+        printf("\n-- Lista vazia. Utilize o inserir_inicio! --\n");
+    }else{
+        Agenda *aux = a;
+
+        do{
+            aux = aux->prox; 
+        }
+        while(aux->prox != NULL);
+        
+        aux->prox = novo;
+        novo->ant = aux;
+        novo->prox = NULL;
+    }
+
+}
+
 Agenda* busca(Agenda *a, long numero){
     Agenda *aux = a;
 
@@ -58,6 +81,7 @@ Agenda *remover_contato(Agenda *a, long numero){
 void imprimir(Agenda *a){
     Agenda *aux = a;
     
+    printf("\n");
     if(aux){
         printf("\n--- Agenda ---\n");
         do{
@@ -68,7 +92,6 @@ void imprimir(Agenda *a){
             aux = aux->prox;
         }
         while (aux != NULL);
-        
     }else{
         printf("\n--- Agenda Vazia ---\n");
     }

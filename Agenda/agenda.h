@@ -12,6 +12,8 @@ Agenda* novo_contato();
 
 Agenda *inserir_inicio(Agenda *a, char *nome, long numero, char *email);
 
+void inserir_fim(Agenda *a, char *nome, long numero, char *email);
+
 Agenda* busca(Agenda *a, long numero);
 
 Agenda *remover_contato(Agenda *a, long numero);

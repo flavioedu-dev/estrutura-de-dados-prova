@@ -14,10 +14,16 @@ int main(){
     a = inserir_inicio(a, "Lucas", 70028926, "teste5gmail.com");
     a = inserir_inicio(a, "Jonas", 80028927, "teste6gmail.com");
     a = inserir_inicio(a, "Alex", 90028928, "teste7gmail.com");
+    
     imprimir(a);
 
     a = remover_contato(a, 80028927);
-    a = remover_contato(a, 40028927);
+    imprimir(a);
+    
+    inserir_fim(a, "Final", 30028928, "teste7gmail.com");
+    imprimir(a);
+
+    a = remover_contato(a, 40028923);
     imprimir(a);
     
     return 0;
