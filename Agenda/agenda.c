@@ -13,47 +13,63 @@ Agenda *inserir_inicio(Agenda *a, char *nome, long numero, char *email){
     novo->nome = nome;
     novo->numero = numero;
     novo->email = email;
+    novo->prox = a;
+    novo->ant = NULL;
 
-    if(a == NULL){
-        novo->prox = NULL;
-        novo->ant = NULL;
-        a = novo;
-    }else{
-        novo->prox = a;
-        novo->ant = NULL;
-        a = novo;
+    if(a != NULL){
+        a->ant = novo;
     }
 
     return novo;
 }
 
-Agenda remover_contato(Agenda *a, long numero){
+Agenda* busca(Agenda *a, long numero){
     Agenda *aux = a;
 
-    do{
+    while(aux){
         if(aux->numero == numero){
-            break;
+            return aux;
         }
         aux = aux->prox;
-    }while(aux);
+    }
 
-    printf("teste");
-    aux->ant->prox = aux->prox;
-    aux->prox->ant = aux->ant;
+    return NULL;
+}
+
+Agenda *remover_contato(Agenda *a, long numero){
+    Agenda *aux = busca(a, numero);
+    
+    if(aux == NULL){
+        return a;
+    }
+    if(aux == a){
+        a = aux->prox;
+    }else{
+        aux->ant->prox = aux->prox;
+    }
+    if(aux->prox != NULL){
+        aux->prox->ant = aux->ant;
+    }
+
     free(aux);
-
+    return a;
 }
 
 void imprimir(Agenda *a){
     Agenda *aux = a;
     
-    printf("--- Agenda ---\n");
-    do{
-        printf("Nome: %s, ", aux->nome);
-        printf("Numero: %d, ", aux->numero);
-        printf("Email: %s.", aux->email);
-        printf("\n");
-        aux = aux->prox;
+    if(aux){
+        printf("\n--- Agenda ---\n");
+        do{
+            printf("Nome: %s, ", aux->nome);
+            printf("Numero: %d, ", aux->numero);
+            printf("Email: %s.", aux->email);
+            printf("\n");
+            aux = aux->prox;
+        }
+        while (aux != NULL);
+        
+    }else{
+        printf("\n--- Agenda Vazia ---\n");
     }
-    while (aux != NULL);
 }
