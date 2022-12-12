@@ -5,7 +5,7 @@
 int main(){
 
     Agenda *a = NULL;
- 
+
     a = inserir_inicio(a, "Pedro", 40028923, "teste1gmail.com");
     a = inserir_inicio(a, "Tiago", 50028924, "teste2gmail.com");
     a = inserir_inicio(a, "Joao", 60028925, "teste3gmail.com");
