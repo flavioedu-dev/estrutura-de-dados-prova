@@ -1,0 +1,7 @@
+Compilando DecBin:
+    gcc -c toBin.c
+    gcc -c prog.c
+    gcc -o prog toBin.c prog.c
+
+Executando DecBin:
+    ./prog

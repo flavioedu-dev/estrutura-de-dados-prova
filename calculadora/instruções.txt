@@ -1,0 +1,7 @@
+Compilando Calculadora:
+    gcc -c lista.c
+    gcc -c prog.c
+    gcc -o prog lista.c prog.c
+
+Executando Calculadora:
+    ./prog

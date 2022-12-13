@@ -1,0 +1,7 @@
+Compilando Cominação Filas:
+    gcc -c lista.c
+    gcc -c prog.c
+    gcc -o prog lista.c prog.c
+
+Executando Combinação Filas:
+    ./prog

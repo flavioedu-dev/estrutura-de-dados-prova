@@ -55,6 +55,17 @@ int main() {
     enqueue(c,10);
     //imprimir(c);
 
+    printf("Lista 1: ");
+    imprimir(p);
+
+    printf("\n");
+
+    printf("Lista 2: ");
+    imprimir(c);
+
+    printf("\n");
+
+    printf("Combinacao: ");
     combinacao(p,c,r);
     imprimir(r);
     return 0;
